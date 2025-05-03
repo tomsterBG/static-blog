@@ -1,0 +1,26 @@
+---
+layout: base.njk # Inherits from the base layout
+---
+<article class="post">
+    <header class="post-header">
+        <h1>{{ title }}</h1>
+        <p class="post-meta">
+            Published on <time datetime="{{ page.date | date('yyyy-MM-dd') }}">{{ page.date | readableDate }}</time>
+            {% if tags %}
+                <br>Tags:
+                {% for tag in tags %}
+                    {# Basic tag link - could link to a tag page later #}
+                    <span class="tag">{{ tag }}</span>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            {% endif %}
+        </p>
+        {# Display the brief description #}
+        {% if description %}
+            <p class="post-description"><em>{{ description }}</em></p>
+        {% endif %}
+    </header>
+
+    <div class="post-content">
+        {{ content | safe }}
+    </div>
+</article>

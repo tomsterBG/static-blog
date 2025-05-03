@@ -1,0 +1,22 @@
+{
+  "name": "my-bilingual-blog",
+  "version": "1.0.0",
+  "description": "A bilingual blog sharing knowledge and experiences.",
+  "main": ".eleventy.js",
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
+  },
+  "keywords": [
+    "eleventy",
+    "blog",
+    "static-site",
+    "bilingual"
+  ],
+  "author": "Your Name",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1", // Use a recent version of Eleventy
+    "luxon": "^3.4.4"          // For date formatting
+  }
+}
