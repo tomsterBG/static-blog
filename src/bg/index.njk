@@ -1,0 +1,27 @@
+---
+layout: base.njk
+language: bg
+title: "Начало"
+permalink: /bg/index.html
+---
+
+<h1>Споделяне на знание и изпитани истини</h1>
+<p>Добре дошли! ... (Bulgarian text) ...</p>
+
+<h2>Последни публикации</h2>
+<ul class="post-list">
+    {% set postsToList = collections.posts_bg %}
+    {% if postsToList.length == 0 %}
+      <p>Все още няма публикации на български.</p>
+    {% else %}
+      {% for post in postsToList %}
+        <li class="post-list-item">
+            <h3><a href="{{ site.baseURL }}{{ post.url }}">{{ post.data.title }}</a></h3>
+            <p class="post-list-meta">{{ post.date | date('LLL dd, yyyy') }}</p> {# Consider date localization if needed #}
+            {% if post.data.description %}
+              <p class="post-list-description">{{ post.data.description }}</p>
+            {% endif %}
+        </li>
+      {% endfor %}
+    {% endif %}
+</ul>

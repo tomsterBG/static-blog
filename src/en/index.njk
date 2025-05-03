@@ -1,0 +1,31 @@
+---
+layout: base.njk
+language: en
+title: "Home"
+permalink: /en/index.html
+---
+
+<h1>Sharing knowledge & tested truths</h1>
+<p>Welcome! This blog is a space where I share insights gained from personal experience and reflections on timeless principles, often inspired by biblical wisdom tested in daily life.</p>
+
+<h2>Recent posts</h2>
+<ul class="post-list">
+    {# Loop through the 'posts_en' collection created in .eleventy.js #}
+    {% set postsToList = collections.posts_en %}
+    {% if postsToList.length == 0 %}
+      <p>No posts yet in English.</p>
+    {% else %}
+      {% for post in postsToList %}
+        <li class="post-list-item">
+            {# Link to the post's generated URL #}
+            <h3><a href="{{ site.baseURL }}{{ post.url }}">{{ post.data.title }}</a></h3>
+            {# Use Eleventy's date filter #}
+            <p class="post-list-meta">{{ post.date | date('LLL dd, yyyy') }}</p>
+            {# Display description from post's front matter #}
+            {% if post.data.description %}
+              <p class="post-list-description">{{ post.data.description }}</p>
+            {% endif %}
+        </li>
+      {% endfor %}
+    {% endif %}
+</ul>

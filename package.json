@@ -1,0 +1,21 @@
+{
+    "name": "static-blog",
+    "version": "1.0.0",
+    "description": "A simple bilingual blog using Eleventy.",
+    "main": ".eleventy.js",
+    "scripts": {
+        "start": "npx @11ty/eleventy --serve",
+        "build": "npx @11ty/eleventy"
+    },
+    "keywords": [
+        "eleventy",
+        "blog",
+        "static-site",
+        "bilingual"
+    ],
+    "author": "Your Name",
+    "license": "GPL-3.0-or-later",
+    "devDependencies": {
+        "@11ty/eleventy": "^2.0.1"
+    }
+}
