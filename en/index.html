@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Knowledge Blog - Home</title>
     <meta name="description" content="Sharing knowledge from experience and tested biblical wisdom.">
-    <!-- Link to shared CSS file (path is relative to this file) -->
+    <!-- Link to shared CSS file -->
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -13,39 +13,33 @@
     <!-- ======== START: Standard Header ======== -->
     <!-- ** IMPORTANT: Copy this block to every new page in 'en/' ** -->
     <header class="site-header">
-        <a href="index.html" class="site-title">My Knowledge Blog</a>
+        <!-- Link to the SITE ROOT (language selection page) -->
+        <a href="/static-blog/" class="site-title">My Knowledge Blog</a>
         <nav>
             <ul class="language-switcher">
-                 <!-- Link to this page (optional, could be text) -->
-                <li class="current-lang">English</li>
+                 <!-- Current Language -->
+                <li class="current-lang"><span aria-label="English">🇬🇧</span></li>
                 <!-- Link to Bulgarian homepage -->
-                <li><a href="../bg/index.html" lang="bg" hreflang="bg">Български</a></li>
+                <li><a href="../bg/" lang="bg" hreflang="bg" aria-label="Български"><span aria-hidden="true">🇧🇬</span></a></li>
             </ul>
         </nav>
     </header>
     <!-- ======== END: Standard Header ======== -->
 
     <main class="container">
-        <h1>Sharing Knowledge & Tested Truths</h1>
+        <h1>Sharing knowledge & tested truths</h1> <!-- Sentence case -->
         <p>Welcome! This blog is a space where I share insights gained from personal experience and reflections on timeless principles, often inspired by biblical wisdom tested in daily life.</p>
 
-        <h2>Recent Posts</h2>
+        <h2>Recent posts</h2> <!-- Sentence case -->
         <ul class="post-list">
             <!-- Add new posts here manually -->
              <li class="post-list-item">
                 <!-- Link to the actual post file -->
-                <h3><a href="my-first-experience.html">My First Experience Testing a Principle</a></h3>
+                <h3><a href="my-first-experience.html">My first experience testing a principle</a></h3> <!-- Sentence case -->
                 <p class="post-list-meta">May 1, 2025</p>
                 <p class="post-list-description">A brief account of applying a simple biblical idea about generosity and observing the outcome...</p>
             </li>
            <!-- Add more list items like the one above for future posts -->
-            <!-- Example if you add another post:
-            <li class="post-list-item">
-                <h3><a href="another-post.html">Title of Another Post</a></h3>
-                <p class="post-list-meta">Date Published</p>
-                <p class="post-list-description">Short summary here...</p>
-            </li>
-             -->
         </ul>
 
     </main>
@@ -53,7 +47,7 @@
     <!-- ======== START: Standard Footer ======== -->
     <!-- ** IMPORTANT: Copy this block to every new page in 'en/' ** -->
     <footer class="site-footer">
-        <p>© 2025 Your Name. Content licensed CC BY-SA 4.0. Code MIT License.</p>
+        <p>© 2025 Your Name. All content and code licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener noreferrer license">GNU GPL v3</a>.</p>
         <p>Built simply with HTML & CSS.</p>
     </footer>
     <!-- ======== END: Standard Footer ======== -->
