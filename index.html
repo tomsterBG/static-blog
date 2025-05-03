@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Knowledge Blog - EN/BG</title>
+    <style>
+        /* --- Basic Styles --- */
+        :root {
+            --bg-color: #FBF0D9; /* Paper yellow / Beige */
+            --text-color: #383838; /* Dark grey */
+            --heading-color: #5a3a1a; /* Darker accent */
+            --accent-color: #8a4b0f; /* Accent for links, details */
+            --border-color: #e0d8c4; /* Subtle border */
+            --secondary-bg: #eee8d5; /* Background for callouts, code */
+            --ribbon-bg: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%, transparent);
+            --ribbon-color: #d3c7ae; /* Base ribbon color */
+            --ribbon-pattern-size: 40px;
+        }
+
+        html {
+             scroll-behavior: smooth; /* Smooth scroll for anchor links */
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            /* Optional soft background texture */
+            /* background-image: url('url/to/your/soft_texture.png'); */
+        }
+
+        /* --- Layout & Sections --- */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1em 1.5em;
+        }
+
+        header, footer {
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2em;
+        }
+
+        footer {
+            margin-top: 3em;
+            padding-top: 1.5em;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        /* Language sections - provide clear visual separation */
+        .language-section {
+            padding-top: 2em; /* Add space when jumping via anchor */
+            margin-bottom: 3em;
+            border-bottom: 2px dashed var(--border-color);
+            padding-bottom: 2em;
+        }
+        .language-section:last-of-type {
+            border-bottom: none;
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3 {
+            color: var(--heading-color);
+            line-height: 1.3;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        h1 { font-size: 2.2em; text-align: center; }
+        h2 { font-size: 1.8em; border-bottom: 1px solid var(--border-color); padding-bottom: 0.2em;}
+        h3 { font-size: 1.5em; }
+
+        p { margin-bottom: 1.2em; }
+        a { color: var(--accent-color); text-decoration: underline; }
+        a:hover { color: var(--heading-color); }
+        strong { font-weight: bold; }
+        em { font-style: italic; }
+        ul, ol { padding-left: 1.5em; margin-bottom: 1.2em; }
+        li { margin-bottom: 0.5em; }
+        img { max-width: 100%; height: auto; display: block; margin: 1.5em auto; border-radius: 4px; }
+
+        /* --- Components --- */
+
+        /* Language Switcher */
+        .lang-switch {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .lang-switch a {
+            margin: 0 0.5em;
+        }
+
+        /* Blog Post Structure */
+        .post {
+            margin-top: 2em;
+            padding: 1.5em;
+            background-color: rgba(255, 255, 255, 0.3); /* Slightly whiter background for posts */
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .post-description {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1.5em;
+            padding-bottom: 1em;
+            border-bottom: 1px dotted var(--border-color);
+        }
+
+        /* Expandable Element (Callout/Details) */
+        details.callout {
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 0.5em 1em 1em 1em; /* Adjust padding */
+            margin: 1.5em 0;
+        }
+        details.callout summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--accent-color);
+            padding: 0.5em 0; /* Add padding to summary */
+        }
+        details.callout summary:hover {
+            text-decoration: underline;
+        }
+        /* Add margin only when details is open */
+        details[open] > summary {
+            margin-bottom: 0.5em;
+        }
+        details.callout p:last-child {
+             margin-bottom: 0;
+        }
+
+        /* Ribbon Separator */
+        hr.ribbon {
+            border: none;
+            height: 50px; /* Adjust height */
+            background-color: var(--ribbon-color);
+            background-image: var(--ribbon-bg);
+            background-size: var(--ribbon-pattern-size) var(--ribbon-pattern-size);
+            margin: 3em auto;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="container">
+        <h1>My Knowledge Blog</h1>
+        <nav class="lang-switch">
+            <a href="#en">English</a> | <a href="#bg">Български (Bulgarian)</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- ================== -->
+        <!-- English Section    -->
+        <!-- ================== -->
+        <section id="en" class="language-section" lang="en">
+            <h2>Welcome (English)</h2>
+            <p>This blog is a space where I share insights gained from personal experience and reflections on timeless principles, often inspired by biblical wisdom tested in daily life.</p>
+            <p>Jump directly to the <a href="#post-en">example blog post below</a>.</p>
+
+            <article class="post" id="post-en">
+                <h3>My First Experience Testing a Principle</h3>
+                <p class="post-description">
+                    A brief account of applying a simple biblical idea about generosity and observing the outcome. It wasn't about getting rich, but about a change in perspective.
+                </p>
+
+                <p>I remember reading a passage that talked about generosity, not just with money, but with time and attention. It seemed counter-intuitive in a busy world – give away what you feel you lack?</p>
+                <p>So, I decided to try a small experiment. For one week, I consciously focused on being more generous with my attention towards colleagues, even when I felt overwhelmed.</p>
+
+                <h4>Observations</h4>
+                <p>Surprisingly, by the end of the week, I <em>felt</em> less stressed, not more. Conversations felt more meaningful. A couple of colleagues spontaneously offered help on one of <em>my</em> tasks later that week. Coincidence? Maybe. But the shift in my own feeling of connection and reduced pressure was undeniable.</p>
+
+                <details class="callout">
+                  <summary>Expand for Deeper Thought</summary>
+                  <p>Perhaps focusing outward reduces self-preoccupation, which is often a source of stress. Maybe demonstrating value to others subconsciously encourages reciprocity. Or perhaps, as the source text suggests, there's a principle at play that operates regardless of our full understanding – a sort of 'spiritual physics'. This hidden content provides more depth.</p>
+                </details>
+
+                <p>This wasn't about a magical formula, but about testing a principle's effect on my own state and relationships. It suggests that some ancient wisdom holds practical, observable value even today.</p>
+
+                <hr class="ribbon">
+
+                <p>This small test encourages me to explore other principles. It's not about blind faith, but about active testing – seeing what holds true in experience.</p>
+
+                <p><em>External image example:</em></p>
+                <img src="https://images.unsplash.com/photo-1500339982381-6c5f36a8fa75?q=80&w=800&auto=format&fit=crop" alt="A path leading into a forest">
+                <p style="text-align: center; font-size: 0.8em;">(Image from Unsplash)</p>
+            </article>
+        </section>
+
+        <!-- ===================== -->
+        <!-- Bulgarian Section   -->
+        <!-- ===================== -->
+        <section id="bg" class="language-section" lang="bg">
+            <h2>Добре дошли (Български)</h2>
+            <p>Този блог е място, където споделям прозрения, придобити от личен опит и размисли върху вечни принципи, често вдъхновени от библейска мъдрост, изпитана в ежедневието.</p>
+             <p>Преминете директно към <a href="#post-bg">примерната статия по-долу</a>.</p>
+
+            <article class="post" id="post-bg">
+                <h3>Моят първи опит в тестването на принцип</h3>
+                 <p class="post-description">
+                    Кратък разказ за прилагането на проста библейска идея за щедростта и наблюдението на резултата. Не ставаше дума за забогатяване, а за промяна в перспективата.
+                </p>
+
+                <p>Спомням си как четох пасаж, който говореше за щедростта – не само с пари, но и с време и внимание. Звучеше контраинтуитивно в един забързан свят – да даваш това, което усещаш, че ти липсва?</p>
+                <p>Затова реших да направя малък експеримент. За една седмица съзнателно се фокусирах върху това да бъда по-щедър с вниманието си към колегите, дори когато се чувствах претоварен.</p>
+
+                <h4>Наблюдения</h4>
+                <p>Изненадващо, до края на седмицата се чувствах <em>по-малко</em> стресиран, а не повече. Разговорите изглеждаха по-смислени. Няколко колеги спонтанно предложиха помощ за една от <em>моите</em> задачи по-късно същата седмица. Съвпадение? Може би. Но промяната в собственото ми усещане за свързаност и намалено напрежение беше неоспорима.</p>
+
+                 <details class="callout">
+                  <summary>Разширете за по-дълбок размисъл</summary>
+                  <p>Може би фокусирането навън намалява заетостта със себе си, което често е източник на стрес. Може би демонстрирането на стойност пред другите подсъзнателно насърчава реципрочност. Или може би, както подсказва изходният текст, действа принцип, който оперира независимо от пълното ни разбиране – един вид „духовна физика“. Това скрито съдържание дава повече дълбочина.</p>
+                </details>
+
+                <p>Тук не ставаше дума за магическа формула, а за тестване на ефекта на даден принцип върху собственото ми състояние и взаимоотношения. Това предполага, че част от древната мъдрост притежава практическа, наблюдаема стойност и днес.</p>
+
+                <hr class="ribbon">
+
+                <p>Този малък тест ме насърчава да изследвам и други принципи. Не става въпрос за сляпа вяра, а за активно тестване – да видя какво се доказва като вярно в опита.</p>
+
+                <p><em>Пример за външно изображение:</em></p>
+                 <img src="https://images.unsplash.com/photo-1500339982381-6c5f36a8fa75?q=80&w=800&auto=format&fit=crop" alt="Пътека, водеща в гора">
+                 <p style="text-align: center; font-size: 0.8em;">(Изображение от Unsplash)</p>
+            </article>
+        </section>
+
+        <!-- Informational Note -->
+        <section>
+            <hr>
+            <h3>About This Page & Limitations</h3>
+            <p>This entire website is contained within a single HTML file for simplicity and easy deployment on services like GitHub Pages. This means:</p>
+            <ul>
+                <li>All content (English and Bulgarian) is in this one file.</li>
+                <li>Content must be written directly in HTML, not Markdown.</li>
+                <li>Features like searching, tags, comments, or analytics require adding external JavaScript services.</li>
+                <li>It's best suited for smaller sites where manual updates are manageable.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer class="container">
+        <p>© 2025 Your Name. Content licensed CC BY-SA 4.0. Code (within this file) MIT License.</p>
+        <p><a href="#">Back to Top</a></p>
+    </footer>
+
+</body>
+</html>
