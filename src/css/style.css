@@ -1,0 +1,70 @@
+body {
+    font-family: sans-serif; /* Use a non-serif font available */
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+main {
+    max-width: 800px; /* Limit content width */
+    margin: 20px auto; /* Center the content */
+}
+
+header, footer {
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee; /* Example styling */
+}
+
+footer {
+    border-top: 1px solid #eee;
+    border-bottom: none;
+    margin-top: 20px;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Minimal tag styling - move from inline style in tag-list.njk */
+.tag {
+    display: inline-block;
+    background-color: #eee;
+    padding: 2px 5px;
+    margin-right: 5px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+/* Minimal callout styling - move from inline style in index.njk */
+.callout {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    max-height: 40px; /* Collapsed height */
+    background-color: #fff; /* Example background */
+}
+.callout.expanded {
+    max-height: 500px; /* Expanded height (adjust as needed) */
+    transition: max-height 0.3s ease-in;
+}
+.callout-title {
+    font-weight: bold;
+}
+.callout-content {
+    margin-top: 10px;
+}
+
+.outdated-callout {
+    background-color: #f8d7da; /* Brownish background for outdated */
+    border-color: #f5c6cb;
+    color: #721c24;
+}

@@ -1,31 +1,47 @@
 ---
 layout: base.njk
-language: en
-title: "Home"
-permalink: /en/index.html
+title: English Home
+permalink: /en/
 ---
 
-<h1>Sharing knowledge & tested truths</h1>
-<p>Welcome! This blog is a space where I share insights gained from personal experience and reflections on timeless principles, often inspired by biblical wisdom tested in daily life.</p>
+{% include "header.njk" %} {# Include header here too for the index page #}
 
-<h2>Recent posts</h2>
-<ul class="post-list">
-    {# Loop through the 'posts_en' collection created in .eleventy.js #}
-    {% set postsToList = collections.posts_en %}
-    {% if postsToList.length == 0 %}
-      <p>No posts yet in English.</p>
-    {% else %}
-      {% for post in postsToList %}
-        <li class="post-list-item">
-            {# Link to the post's generated URL #}
-            <h3><a href="{{ site.baseURL }}{{ post.url }}">{{ post.data.title }}</a></h3>
-            {# Use Eleventy's date filter #}
-            <p class="post-list-meta">{{ post.date | date('LLL dd, yyyy') }}</p>
-            {# Display description from post's front matter #}
-            {% if post.data.description %}
-              <p class="post-list-description">{{ post.data.description }}</p>
-            {% endif %}
-        </li>
-      {% endfor %}
-    {% endif %}
-</ul>
+<p>English intro text block 1.</p>
+
+<p>English intro text block 2.</p>
+
+<hr> {# Horizontal line #}
+
+<h2>English Posts</h2>
+{% set posts = collections.enPosts %} {# Assign the English posts collection #}
+{% include "post-list.njk" %}
+
+<div class="callout" onclick="this.classList.toggle('expanded')"> {# Expandable callout #}
+    <div class="callout-title">Click to Expand</div>
+    <div class="callout-content">
+        <p>Expandable content text.</p>
+    </div>
+</div>
+
+<style>
+    /* Minimal CSS for callout and tags */
+    .callout {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px 0;
+        cursor: pointer;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        max-height: 40px; /* Collapsed height */
+    }
+    .callout.expanded {
+        max-height: 500px; /* Expanded height (adjust as needed) */
+        transition: max-height 0.3s ease-in;
+    }
+    .callout-title {
+        font-weight: bold;
+    }
+    .callout-content {
+        margin-top: 10px;
+    }
+</style>
