@@ -1,27 +1,47 @@
 ---
 layout: base.njk
-language: bg
-title: "Начало"
-permalink: /bg/index.html
+title: Bulgarian Home
+permalink: /bg/
 ---
 
-<h1>Споделяне на знание и изпитани истини</h1>
-<p>Добре дошли! ... (Bulgarian text) ...</p>
+{% include "header.njk" %} {# Include header here too for the index page #}
 
-<h2>Последни публикации</h2>
-<ul class="post-list">
-    {% set postsToList = collections.posts_bg %}
-    {% if postsToList.length == 0 %}
-      <p>Все още няма публикации на български.</p>
-    {% else %}
-      {% for post in postsToList %}
-        <li class="post-list-item">
-            <h3><a href="{{ site.baseURL }}{{ post.url }}">{{ post.data.title }}</a></h3>
-            <p class="post-list-meta">{{ post.date | date('LLL dd, yyyy') }}</p> {# Consider date localization if needed #}
-            {% if post.data.description %}
-              <p class="post-list-description">{{ post.data.description }}</p>
-            {% endif %}
-        </li>
-      {% endfor %}
-    {% endif %}
-</ul>
+<p>Bulgarian intro text block 1.</p>
+
+<p>Bulgarian intro text block 2.</p>
+
+<hr> {# Horizontal line #}
+
+<h2>Bulgarian Posts</h2>
+{% set posts = collections.bgPosts %} {# Assign the Bulgarian posts collection #}
+{% include "post-list.njk" %}
+
+<div class="callout" onclick="this.classList.toggle('expanded')"> {# Expandable callout #}
+    <div class="callout-title">Click to Expand</div>
+    <div class="callout-content">
+        <p>Expandable content text.</p>
+    </div>
+</div>
+
+<style>
+    /* Minimal CSS for callout and tags */
+    .callout {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px 0;
+        cursor: pointer;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        max-height: 40px; /* Collapsed height */
+    }
+    .callout.expanded {
+        max-height: 500px; /* Expanded height (adjust as needed) */
+        transition: max-height 0.3s ease-in;
+    }
+    .callout-title {
+        font-weight: bold;
+    }
+    .callout-content {
+        margin-top: 10px;
+    }
+</style>

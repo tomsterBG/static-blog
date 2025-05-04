@@ -1,62 +1,18 @@
-<!DOCTYPE html>
-{# Use language from front matter or default to 'en' #}
-<html lang="{{ language or 'en' }}">
+<!doctype html>
+<html lang="{{ metadata.language }}">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {# Use page title from front matter + site title, or just site title #}
-    <title>{{ title + " - " if title else "" }}{{ site.title }}</title>
-    {# Use page description from front matter if it exists #}
-    {% if description %}
-        <meta name="description" content="{{ description }}">
-    {% endif %}
-    {# Link to CSS - path is relative to the *output* root #}
-    <link rel="stylesheet" href="{{ site.baseURL }}/assets/css/style.css">
-    {# Add alternate language links if available (needs more setup for posts) #}
-    {% if alternateUrl %}
-        <link rel="alternate" hreflang="{{ alternateLangCode }}" href="{{ site.baseURL }}{{ alternateUrl }}">
-    {% endif %}
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/css/style.css"> {# Link to your future CSS file #}
 </head>
-<body>
-    <!-- ======== Standard Header (Now managed by template) ======== -->
-    <header class="site-header">
-        {# Link to the SITE ROOT (defined in site.js, points to language selection page) #}
-        <a href="{{ site.baseURL }}/" class="site-title">{{ site.title }}</a>
-        <nav>
-            <ul class="language-switcher">
-                {# Loop through available languages defined in site.js #}
-                {% for lang in site.languages %}
-                    {# Check if the current page's language matches this loop item #}
-                    {% if lang.code == language %}
-                        <li class="current-lang"><span aria-label="{{ lang.label }}">{{ lang.flag }}</span></li>
-                    {% else %}
-                        {# Generate link to the corresponding page in the other language #}
-                        {# This simple version links to the other language's homepage #}
-                        {# Linking specific posts requires more complex logic or front matter key #}
-                        {% set targetUrl = alternateUrl if alternateUrl and lang.code == alternateLangCode else '/' + lang.code + '/' %}
-                         <li><a href="{{ site.baseURL }}{{ targetUrl }}" lang="{{ lang.code }}" hreflang="{{ lang.code }}" aria-label="{{ lang.label }}"><span aria-hidden="true">{{ lang.flag }}</span></a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </nav>
-    </header>
-    <!-- ======== End Header ======== -->
+<body style="background-color: #F5F5DC;"> {# Warm beige background #}
+    {% include "header.njk" %}
 
-    {# Main content block - content from specific pages will be injected here #}
-    <main class="container">
-        {{ content | safe }} {# 'safe' filter allows HTML from Markdown/Nunjucks content #}
+    <main>
+        {{ content | safe }} {# 'safe' is needed to render HTML from Markdown #}
     </main>
 
-    <!-- ======== Standard Footer (Now managed by template) ======== -->
-    <footer class="site-footer">
-        {# Get current year and author from site.js data #}
-        {# Find the GPL link locale for the current language #}
-        {% set currentLangData = site.languages | find(item => item.code == (language or 'en')) %}
-        {% set gplLink = "https://www.gnu.org/licenses/gpl-3.0." + currentLangData.locale_GPL + ".html" if currentLangData.locale_GPL != "en" else "https://www.gnu.org/licenses/gpl-3.0.html" %}
-        <p>© {{ site.currentYear }} {{ site.author }}. All content and code licensed under the <a href="{{ gplLink }}" target="_blank" rel="noopener noreferrer license">GNU GPL v3</a>.</p>
-        <p>Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">Eleventy</a>.</p>
-    </footer>
-    <!-- ======== End Footer ======== -->
-
+    {% include "footer.njk" %}
 </body>
 </html>

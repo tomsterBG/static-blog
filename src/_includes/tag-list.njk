@@ -1,0 +1,47 @@
+<div>
+    {# Tag filtering placeholder #}
+    {% set allTags = collections.enPosts | getAllTags(collections.bgPosts) %} {# Will create getAllTags filter #}
+    Filter by Tag:
+    {% for tag in allTags | excludeTag('hidden') | sort %}
+        <button data-tag="{{ tag }}">{{ tag }}</button>
+    {% endfor %}
+</div>
+
+<script>
+    // Simple JavaScript for tag filtering (basic example)
+    document.addEventListener('DOMContentLoaded', function() {
+        const tagButtons = document.querySelectorAll('.tag-list button');
+        const postItems = document.querySelectorAll('.post-list li');
+
+        tagButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const tag = this.getAttribute('data-tag');
+                postItems.forEach(item => {
+                    const tags = item.querySelectorAll('.tag');
+                    let hasTag = false;
+                    tags.forEach(tagSpan => {
+                        if (tagSpan.textContent === tag) {
+                            hasTag = true;
+                        }
+                    });
+                    if (hasTag || tag === 'all') { // 'all' button would show all
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+<style>
+    .tag {
+        display: inline-block;
+        background-color: #eee;
+        padding: 2px 5px;
+        margin-right: 5px;
+        border-radius: 3px;
+        font-size: 0.9em;
+    }
+</style>

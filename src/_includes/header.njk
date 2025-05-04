@@ -1,0 +1,14 @@
+<header>
+    <h1>Site Title</h1>
+    <div>
+        {# Language buttons #}
+        <a href="/en/">🇺🇸 EN</a>
+        <a href="/bg/">🇧🇬 BG</a>
+    </div>
+    {# Breadcrumbs placeholder #}
+    <nav>
+        {% for crumb in breadcrumbs %}
+            <a href="{{ crumb.url }}">{{ crumb.text }}</a>{% if not loop.last %} / {% endif %}
+        {% endfor %}
+    </nav>
+</header>
